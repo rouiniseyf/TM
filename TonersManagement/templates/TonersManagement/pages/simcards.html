@@ -1,0 +1,28 @@
+{% extends 'TonersManagement/components/base.html ' %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'simcards' %}">ALL</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'djezzy' %}">DJEZZY</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'ooredoo' %}">OOREDOO</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'mobilis' %}">MOBILIS</a></li>
+  </ol>
+</nav>
+<div class="container-fluid" style="background-color: white; ">
+ <a  class="btn btn-light float-right mr-2" href="{% url 'offers' %}" style="margin-left : 5px;">Add Offer</a>
+
+{% include 'TonersManagement/components/messages.html' %}
+{% include 'TonersManagement/components/add_new_item.html' %}
+{% include 'TonersManagement/components/simcards_table.html' %}
+{% include 'TonersManagement/components/simcards_mobile_view.html' %}
+
+</div>
+ 
+
+
+
+ 
+
+{% endblock content %}

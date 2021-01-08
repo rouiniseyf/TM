@@ -1,0 +1,121 @@
+{% extends 'TonersManagement/components/base.html ' %}
+
+{% block content %}
+<div class="container-fluid" style="background-color: white; ">
+<div class="row mt-4 mb-4">
+
+<!-- Card -->
+<div class="col">
+<div >
+    <div class="card-header">
+      CONSUMPTION REPORT<b> {{ data.release_number }}</b>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Direction &nbsp;&nbsp;&nbsp;&nbsp; <b>{{ selected_direction}}</b> </li>
+      <li class="list-group-item">Customer &nbsp;&nbsp;&nbsp;&nbsp; <b>{{ selected_custoemr }}</b> </li>
+      <li class="list-group-item">Period  &nbsp;&nbsp;&nbsp;&nbsp; From  &nbsp;&nbsp; <b>{{ from}}</b> &nbsp;&nbsp; to &nbsp;&nbsp;<b>{{ to }} </b> </li>
+      <li class="list-group-item">
+      <form method="POST">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-primary shadow-none  rounded-0" style="padding-left : 30px; padding-right : 30px;" name="print" role="button" value="Print report"> 
+      </form>
+      </li>
+      
+    </ul>
+ 
+  </div>
+</div>
+<!-- End Card -->
+
+<!-- Card -->
+<div class="col">
+<div class="card" >
+  <div class="card-body">
+    <form  method = "POST" if="form">
+        {% csrf_token %}
+
+    <div class="form-group row">
+    <label for="inputPassword" class="col col-form-label">Direction</label>
+    <div class="col-sm-9">
+        <select class="custom-select mr-sm-2 shadow-none" id="inlineFormCustomSelect" name="direction">
+            <option >ALL</option>
+        {% for item in directions %}
+            <option>{{ item }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label ">From</label>
+    <div class="col-sm-10">
+    <!-- {{ today.year }}-{{ today.month }}-{{ today.day }} -->
+         <input type="date" name='date_from' class="form-control shadow-none" id="entry_date" value="{{ today.year }}-01-01">
+    </div>
+    </div>
+ 
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">To</label>
+    <div class="col-sm-10">
+         <input type="date" name='date_to' class="form-control shadow-none" id="entry_date" value="{{ today.year }}-01-01">
+    </div>
+    </div>
+
+    
+    <input type="submit" class="btn btn-primary float-right" name="submit_consumption_ny_direction"></a>   
+    </form>
+  </div>
+</div>
+</div>
+<!-- End Card -->
+
+<!-- Card -->
+<div class="col">
+<div class="card" >
+  <div class="card-body">
+    <form  method = "POST" if="form">
+        {% csrf_token %}
+ 
+    <div class="form-group row">
+    <label for="inputPassword" class="col col-form-label">Customer</label>
+    <div class="col-sm-9">
+        <select class="custom-select mr-sm-2 shadow-none" id="inlineFormCustomSelect" name="customer">
+        {% for item in customers %}
+            <option>{{ item }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">From</label>
+    <div class="col-sm-10">
+         <input type="date" name='date_from' class="form-control shadow-none" id="entry_date" value="{{ today.year }}-01-01">
+    </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">To</label>
+    <div class="col-sm-10">
+         <input type="date" name='date_to' class="form-control shadow-none" id="entry_date" value="{{ today.year }}-01-01">
+    </div>
+    </div>
+
+    
+    <input type="submit" class="btn btn-primary float-right" name="submit_consumption_by_customer"></a>   
+    </form>
+  </div>
+</div>
+</div>
+<!-- End Card -->
+
+
+
+</div>
+
+{% include 'TonersManagement/components/consumption_report_table.html' %}
+ 
+
+</div>
+ 
+{% endblock content %}

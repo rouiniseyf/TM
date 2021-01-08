@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="table-responsive-sm d-none d-lg-block">
+
+  <table class="table table-hover" >
+  <thead>
+  <tr>
+      {% for header in headers %}
+          <th>{{header}}</th>
+      {% endfor %}
+  </tr>
+  </thead>
+
+  {% for item in data %}
+    <tr>
+    
+        <td><a href={% url 'release_voucher_details' item.id %} class="btn btn-primary btn-sm rounded-0 shadow-none" tabindex="-1" role="button" aria-disabled="true">{{ item.release_number }}</a></td>
+        <td>{{ item.customer.full_name }}</td>
+        <td>{{ item.customer.direction }}</td>
+        <td>{{ item.release_date }}</td>
+   
+      
+        <td><a  class="btn btn-light btn-sm shadow-none" tabindex="-1" role="button" aria-disabled="true"href={% url 'update_release_voucher' item.id %}   ><i class="fa fa-pencil" aria-hidden="true"></i> Update </a></td>
+        <td><a class="btn btn-danger btn-sm shadow-none" tabindex="-1" role="button" aria-disabled="true"  href="{% url  'delete_release_voucher' item.id %}"><i class="fa fa-trash"></i> Delete</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

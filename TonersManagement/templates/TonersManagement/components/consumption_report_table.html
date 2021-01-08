@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="table-responsive-sm  table-hover d-none d-lg-block">
+  <table class="table table-hover">
+  <thead>
+  <tr >
+      {% for header in headers %}
+          <th >{{header}}</th>
+      {% endfor %}
+  </tr>
+   </thead>
+<tbody>
+  {% for item in consumption_list %}
+    <tr>
+
+          <td>{{ item.toner.description|upper }} {{ item.toner.toners_type|upper }} {{ item.toner.color }}</td>
+          <td>{{ item.release_voucher.release_number }}&nbsp;&nbsp;</td>
+          <td>{{ item.release_voucher.customer.full_name }}&nbsp;&nbsp;</td>
+          <td>{{ item.quantity }}&nbsp;&nbsp;</td>
+          <td>{{ item.date }}&nbsp;&nbsp;</td>
+     
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

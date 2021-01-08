@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <title>Title</title>
+        <style>
+        @page {
+        size: a4 portrait;
+        margin: 2cm;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 30pt; width: 512pt; top: 10pt; height: 50pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 40pt; width: 512pt; top: 40pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 50pt;
+        }
+    }
+</style>
+
+        <style type="text/css">
+           
+          body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+             
+                color: #007cae;
+            }
+            
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 0px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            .mytitle1{          
+                color : black; 
+                font-family: 'Segoe UI';    
+                padding: 0;
+                margin: 0;
+            }
+            .nospacing{
+                padding: 0;
+                margin: 0; 
+            }
+            .spacing{
+                padding-top: 5px;
+
+            }
+            .f12{
+                font-size: 12pt;   
+            }
+            .f20{
+                font-size: 60pt;
+            }
+            .datetext{
+                font-size : 11pt;
+            }
+            .smalltext{
+                color :black;
+                font-size: 9pt;   
+            }         
+            p.small {
+                line-height: 1.5;
+            }
+            .Italic{
+                font-style: italic;  
+            }
+            .Bold{
+                 font-weight: bold;
+            }
+            table.mytable, th.mytable, td.mytable {
+                font-family: 'Calibri (Body)'; 
+                border: 1px solid black;
+                text-align: center;
+            }
+          
+            
+  
+        </style>
+    </head>
+    <body>
+       
+        <div id='header_frame'>
+            <table style="width:100%;">     <!-- border: 1px solid black;  -->  
+                <tr>
+                    <td style="line-height: 0.5;" colspan="2"> 
+                 
+                    <img style="width: 150px; f12"  src="{% static "logo.png" %}"  alt="shit"> <br>
+                        <p class="mytitle1 Italic small f12" style="margin-top:20px;">EPE SPA RAIL LOGISTIC</p> 
+                        <p class="mytitle1 Italic small f12" >DIRECTION DES SYSTEMES D'INFORMATION</p>                                                                   
+                        <!-- <p class="mytitle1 Italic Bold small f12">Département développement et moyens</p> -->       
+                    </td>
+                    <td style="text-align: right;"> 
+                        <img style="width: 120px;" class="nospacing"  src="{% static "images/QR_code.png" %}"  alt="shit">
+                        <p  class="smalltext Italic"><span class="Bold" >Rouiba le,</span> {{ date }} </p>
+                    </td>
+                </tr>
+            </table>
+        <h1 style="text-align: center;  color : black; font-size: 16pt; margin-top:60px; "> DECHARGE N° {{ release_voucher.release_number }} / {{ release_voucher.release_date.year }} </h1>     
+        </div>
+        
+        <div id='content_frame '>
+     
+        <p style="text-align:left;">
+            <span class="mytitle1 Bold Italic" style="text-decoration : underline;" >Demandeur: </span> <span style="font-family: 'Segoe UI'; font-size : 12pt;">(Mme/Mr).</span> <span class="mytitle1 Bold" > {{ release_voucher.customer.full_name }} </span>         
+        </p>
+                                           
+       <table style="width:100%" class="mytable">
+            <tr class="mytable">
+                <th class="mytable Bold Italic nospacing spacing " colspan="2">Refferance</th>
+                <th class="mytable Bold Italic nospacing spacing">Type</th> 
+                <th class="mytable Bold Italic nospacing spacing">Color</th> 
+                <th class="mytable Bold Italic nospacing spacing">Quantité</th>
+            </tr>
+            {% for item in consumption_list %}
+            <tr class="mytable">
+                <td class="mytable nospacing spacing smalltext" style="text-align: left; padding-left: 5px;" colspan="2">{{ item.toner.description }}</td>
+                <td class="mytable nospacing spacing smalltext" style="text-align: left; padding-left: 5px;">{{ item.toner.toners_type }}</td>
+                <td class="mytable nospacing spacing smalltext" style="text-align: left; padding-left: 5px;">{{ item.toner.color }}</td>
+                <td class="mytable nospacing spacing smalltext">{{ item.quantity }}</td>
+            </tr> 
+            {% endfor %}
+        </table>
+
+        <table style="margin-top: 80px;">
+            <tr style="text-decoration : underline;">    
+                <td>DIRECTIN DES SYSTEMS D'INFORMATION </td>
+                <td style="padding-left : 100px;;">DEMANDEUR </td>
+            </tr>
+        </table>
+
+
+           
+          
+        </div>
+    
+    <div id="footer_content">
+            
+        <p align="center" style="font-size: 9pt;" >Adresses: 03, Rue des frères boulahdour - Alger, Zone industriel - Alger <br/> Tèl: 213 (0) 21 732 811 - 213 (0) 21 733 981 Fax: 213 (0) 21 733 148 <br/> www.rail-logistic.com | info@rail-logistic.com </p>
+    </div>
+    </body>
+</html>
+

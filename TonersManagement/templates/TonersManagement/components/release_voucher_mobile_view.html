@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="card-deck-sm d-lg-none">
+
+  {% for item in data %}
+  <div class="card  mb-3" >
+
+    <h6 class="card-header  bg-light" ><a href={% url 'release_voucher_details' item.id %} style="font-color: black;"> Release <b>{{ item.release_number}}</b> </a></h6> 
+ 
+ <ul class="list-group list-group-flush">
+    <li class="list-group-item">Customer <br>{{ item.customer.full_name}} </li>
+    <li class="list-group-item">Direction <br>{{ item.customer.direction}} </li>
+    <li class="list-group-item">Release Date <br>{{ item.release_date}} </li>
+  </ul>
+   
+  <div class="card-body">
+    <a href="{% url 'update_release_voucher' item.id %} " class="card-link">Update</a>
+    <a href="{% url  'delete_release_voucher' item.id %}" class="card-link">Delete</a>
+  </div>
+</div>
+
+  {% endfor %}
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

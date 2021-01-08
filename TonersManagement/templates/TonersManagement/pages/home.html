@@ -1,0 +1,244 @@
+{% extends 'TonersManagement/components/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="card bg-light mb-3 mt-3 w-100">
+  <div class="card-header">TONERS SITUATION</div>
+  <div class="card-body">
+
+  <div class="card-deck">
+  <!-- Card start-->
+  <div class="card text-white bg-warning mb-3" data-toggle="modal" data-target="#low_on_stock_table" style="max-width: 18rem;">
+  <div class="card-header">LOW ON STOCK</div>
+  <div class="card-body" style="horizanel-align: middle;">
+    <h1 class="card-title">{{ count_low }} Toners</h1>
+    <p> With quantity less then 2</p>
+  </div>
+  </div>
+<!-- Card end-->
+  
+<!-- Card start-->
+  <div class="card text-white bg-danger mb-3" data-toggle="modal" data-target="#zero_in_stock_table" style="max-width: 18rem;">
+  <div class="card-header">ZERO IN STOCK</div>
+  <div class="card-body">
+    <h1 class="card-title">{{ count_zero }} Toners</h1>
+    <p> With 0 quantity in stock</p>
+  </div>
+  </div>
+<!-- Card end -->
+  
+  <div class="card bg-light mb-3" >
+  <div class="card-header">LAST RELEASE</div>
+  <div class="card-body">
+    <h5 class="card-title">Light card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+  <!-- Card start-->
+
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">IN STOCK</div>
+  <div class="card-body">
+     <h1 class="card-title">{{ count_stock }} Toners</h1>
+     <p> With {{ count_low }} low , and {{ count_zero }} zero</p>
+  </div>
+  </div>
+
+  <!-- Card end-->
+  
+</div>
+
+  </div>
+</div>
+</div>
+
+
+
+<!-- Low on stock Modal -->
+<div class="modal fade " id="low_on_stock_table" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-0 modal-lg" role="document">
+    <div class="modal-content ">
+      
+      <div class="modal-body">
+        <!-- low_on_stock -->
+        <table class="table">
+          <thead>
+            <tr >
+                <th >Toner</th>
+                <th >Color</th>
+                <th >Type</th>
+                <th >Quantity</th>
+            </tr>
+          </thead>
+
+          {% for item in low_on_stock_list %}
+          <tr>
+            <td>{{ item.description }}&nbsp;&nbsp;</td>
+            <td>{{ item.color }}&nbsp;&nbsp;</td>
+            <td>{{ item.toners_type }}&nbsp;&nbsp;</td>
+            <td>{{ item.Quantity }}&nbsp;&nbsp;</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>            
+    </div>
+  </div>
+  </div>
+<!-- End  Low on stock Model-->
+
+<!-- Zero in stock Modal -->
+<div class="modal fade" id="zero_in_stock_table" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-0 modal-lg" role="document">
+    <div class="modal-content ">
+      
+      <div class="modal-body">
+        <!-- low_on_stock -->
+        <table class="table">
+          <thead>
+            <tr >
+                <th >Toner</th>
+                <th >Color</th>
+                <th >Type</th>
+                <th >Quantity</th>
+            </tr>
+          </thead>
+
+          {% for item in zero_on_stock_list %}
+          <tr>
+            <td>{{ item.description }}&nbsp;&nbsp;</td>
+            <td>{{ item.color }}&nbsp;&nbsp;</td>
+            <td>{{ item.toners_type }}&nbsp;&nbsp;</td>
+            <td>{{ item.Quantity }}&nbsp;&nbsp;</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>            
+    </div>
+  </div>
+  </div>
+
+<!-- End  Zero in stock Model-->
+</div>
+
+
+
+
+
+
+
+<div class="container-fluid">
+<!-- Simcards -->
+<div class="card bg-light mb-3 mt-3 w-100">
+  <div class="card-header">SIMCARDS SITUATION - <b>TOTAL SUM {{ total_sum|floatformat:2 }} DA</div>
+  <div class="card-body">
+
+  <div class="card-deck">
+  <!-- Card Djezzy-->
+  <div class="card  bg-light mb-3" data-toggle="modal">
+  <div class="card-header">DJEZZY</div>
+  <div class="card-body" style="horizanel-align: middle;">
+    <h1 class="card-title">{{ djezzy_simcards_count }} Simcard</h1>
+    <p> Total sum : {{ sum_djezzy|floatformat:2 }} DA</p>
+  </div>
+  </div>
+<!-- Card end-->
+  
+<!-- Card mobilis-->
+  <div class="card text-white bg-danger mb-3">
+  <div class="card-header">OOREDOO</div>
+  <div class="card-body">
+    <h1 class="card-title">{{ ooredoo_simcards_count }} Simcard</h1>
+    <p> Total sum :  {{ sum_ooredoo|floatformat:2 }} DA</p>
+  </div>
+  </div>
+<!-- Card end -->
+  
+ 
+  <!-- Card start-->
+
+  <div class="card text-white bg-success mb-3" >
+  <div class="card-header">MOBILIS</div>
+  <div class="card-body">
+     <h1 class="card-title">{{ mobilis_simcards_count }} Simcard</h1>
+     <p> Total sum :  {{ sum_mobilis|floatformat:2 }} DA</p>
+  </div>
+  </div>
+
+  <!-- Card end-->
+  
+</div>
+
+  </div>
+</div>
+</div>
+
+
+
+<!-- Low on stock Modal -->
+<div class="modal fade " id="low_on_stock_table" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-0 modal-lg" role="document">
+    <div class="modal-content ">
+      
+      <div class="modal-body">
+        <!-- low_on_stock -->
+        <table class="table">
+          <thead>
+            <tr >
+                <th >Toner</th>
+                <th >Color</th>
+                <th >Type</th>
+                <th >Quantity</th>
+            </tr>
+          </thead>
+
+          {% for item in low_on_stock_list %}
+          <tr>
+            <td>{{ item.description }}&nbsp;&nbsp;</td>
+            <td>{{ item.color }}&nbsp;&nbsp;</td>
+            <td>{{ item.toners_type }}&nbsp;&nbsp;</td>
+            <td>{{ item.Quantity }}&nbsp;&nbsp;</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>            
+    </div>
+  </div>
+  </div>
+<!-- End  Low on stock Model-->
+
+<!-- Zero in stock Modal -->
+<div class="modal fade" id="zero_in_stock_table" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-0 modal-lg" role="document">
+    <div class="modal-content ">
+      
+      <div class="modal-body">
+        <!-- low_on_stock -->
+        <table class="table">
+          <thead>
+            <tr >
+                <th >Toner</th>
+                <th >Color</th>
+                <th >Type</th>
+                <th >Quantity</th>
+            </tr>
+          </thead>
+
+          {% for item in zero_on_stock_list %}
+          <tr>
+            <td>{{ item.description }}&nbsp;&nbsp;</td>
+            <td>{{ item.color }}&nbsp;&nbsp;</td>
+            <td>{{ item.toners_type }}&nbsp;&nbsp;</td>
+            <td>{{ item.Quantity }}&nbsp;&nbsp;</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>            
+    </div>
+  </div>
+  </div>
+  </div>
+
+<!-- end Simcards-->
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="table-responsive-sm  table-hover d-none d-lg-block">
+  <table class="table">
+  <thead>
+  <tr >
+      {% for header in headers %}
+          <th >{{header}}</th>
+      {% endfor %}
+  </tr>
+  </thead>
+
+  {% for item in data %}
+    <tr>
+
+          <td>{{ item.direction }}&nbsp;&nbsp;</td>
+          <td>{{ item.full_name }}&nbsp;&nbsp;</td>
+     
+        <td><a  class="btn btn-light btn-sm shadow-none" href={% url 'update_customer' item.id %}   ><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+        <td><a class="btn btn-danger btn-sm shadow-none" href="{% url  'delete_customer' item.id %}"><i class="fa fa-trash"></i></a></td>
+    </tr>
+  {% endfor %}
+  </table>
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

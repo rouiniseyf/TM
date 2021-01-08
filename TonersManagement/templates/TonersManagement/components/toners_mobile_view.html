@@ -1,0 +1,50 @@
+{% load static %}
+
+<div class="card-deck-sm d-lg-none">
+
+  {% for item in data %}
+  <div class="card  mb-3" >
+    <h6 class="card-header  bg-light">{{ item.description|upper }}</h6> 
+
+  
+   
+  <div class="card-body">
+  
+    <h6 class="card-subtitle mb-2 text-muted">
+    {% if item.color == "BLACK" %} 
+    
+     <img style="width: 20px;" class="mb-1" src="{% static '/images/black.png' %}"  >
+  {% endif %}
+
+  {% if item.color == "MAGENTA" %}
+   <img style="width: 20px;" class="mb-1" src="{% static 'images/magenta.png' %}"  >
+  {% endif %}
+
+  {% if item.color == "CYAN" %}
+   <img style="width: 20px;" class="mb-1" src="{% static 'images/cyan.png' %}"  >
+  {% endif %}
+  
+
+  {% if item.color == "YELLOW" %} 
+   <img style="width: 20px;" class="mb-1" src="{% static 'images/yellow.png' %}"  >
+  {% endif %}
+    {{item.toners_type|upper}} </h6>
+    <p class="card-text">Currntly in stock is: <B>{{ item.Quantity }}</B><br>
+      {% if item.Quantity < 3 %}
+      {% if item.Quantity == 0 %}
+      <span class="badge badge-danger">Warning</span>
+      {% else %}
+       <span class="badge badge-warning">Warning</span>
+      {% endif %}     
+    {% endif %}</p>
+
+    <a href="{% url 'update_toner' item.id %} " class="card-link">Update</a>
+    <a href="{% url  'delete_toner' item.id %}" class="card-link">Delete</a>
+  </div>
+</div>
+
+  {% endfor %}
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

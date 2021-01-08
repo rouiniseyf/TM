@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="table-responsive-sm table-hover d-none d-lg-block">
+
+  <table class="table">
+  <thead>
+  <tr >
+      {% for header in headers %}
+          <th>{{header}}</th>
+      {% endfor %}
+  </tr>
+  </thead>
+
+  {% for item in data %}
+    <tr>
+ 
+        
+        <td>{{ item.device }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.seriel_number }}</td>
+        <td>{{ item.inventory_number }}</td>
+        <td>{{ item.customer }}</td>    
+        <td>{{ item.discharge_number }}</td>
+        <td>{{ item.supplier }}</td>
+        <td>{{ item.bill_number }}</td>
+        <td>{{ item.release_voucher }}</td>
+        <td>{{ item.buying_date }}</td>
+
+
+        <td><a  class="btn btn-light btn-sm shadow-none" href={% url 'update_hardware' item.id %}   ><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+        <td><a class="btn btn-danger btn-sm shadow-none" href="{% url  'delete_hardware' item.id %}"><i class="fa fa-trash"></i></a></td>
+    </tr>
+  {% endfor %}
+  </table>
+  {% include 'TonersManagement/components/pagination.html' %}
+ 
+</div>
+
+

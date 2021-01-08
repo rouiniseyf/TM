@@ -1,0 +1,49 @@
+{% load static %}
+{{ form.media }}  
+{% load bootstrap4 %}     
+{% bootstrap_css %}         
+{% bootstrap_javascript jquery='full' %}
+
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-end mt-3" style="margin-bottom: 20px;">
+<button type="button" class="btn btn-primary shadow-none " data-toggle="modal" data-target="#CreateModal" >  Add {{ model }} </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade " id="CreateModal" tabindex="-1" role="dialog"   aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered rounded-0" role="document">
+    <div class="modal-content ">
+      
+      <div class="modal-body">
+      <h3 style="margin-top : 15px; margin-bottom : 18px;">Create</h3>
+        <form   method="POST" id="tonerForm">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                      <label for="{{field.id_for_label}}">{{field.label}}</label>
+                      {{field}}
+                </div>
+            {% endfor %}
+
+             {% comment %} <Button class="btn btn-primary rounded-0 float-right" type="submit" name="Submit"><span class="pl-3 pr-3" style="font-size: 11pt;">SUBMIT</span></Button>
+             
+             <Button class="btn btn-danger rounded-0 float-right mr-2" data-dismiss="modal" ><span class="pl-3 pr-3" style="font-size: 11pt;">CLOSE</span></Button> {% endcomment %}
+
+            <input type="submit" class="btn btn-primary float-right" id="butt" name="SUBMIT"></a>
+            <a  class="btn btn-light float-right mr-2" data-dismiss="modal">Cancel</a>
+ 
+        </form>
+        
+
+      </div>            
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+
+<!-- end -->

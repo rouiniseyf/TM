@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="card-deck-sm d-lg-none">
+
+  {% for item in data %}
+  <div class="card  mb-3" >
+
+    <h6 class="card-header  bg-light" > <b>{{ item.full_name}}</b></h6> 
+ 
+ <ul class="list-group list-group-flush">
+    <li class="list-group-item">Direction <br><b>{{ item.direction}} </b></li>
+  </ul>
+   
+  <div class="card-body">
+    <a href="{% url 'update_customer' item.id %} " class="card-link">Update</a>
+    <a href="{% url  'delete_customer' item.id %}" class="card-link">Delete</a>
+  </div>
+</div>
+
+  {% endfor %}
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+

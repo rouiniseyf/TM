@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="card-deck-sm d-lg-none">
+
+  {% for item in consumption_list %}
+  <div class="card  mb-3" >
+
+    <h6 class="card-header  bg-light" > <b>{{ item.toner.description }}</b></h6> 
+ 
+ 
+ <div class="container-fluid ">
+ <div class="row">
+<div class="col">
+    <p> {{ item.toner.toners_type }}</p>
+</div>
+<div class="col">
+<h1>text</h1>
+</div>
+ </div>
+ </div>
+   
+  <div class="card-body">
+    <a href="{% url 'update_customer' item.id %} " class="card-link">Update</a>
+    <a href="{% url  'delete_customer' item.id %}" class="card-link">Delete</a>
+  </div>
+</div>
+
+  {% endfor %}
+  {% include 'TonersManagement/components/pagination.html' %}
+</div>
+
+ <td>{{ item.toner.description }}&nbsp;&nbsp;</td>
+          <td>{{ item.toner.color }}&nbsp;&nbsp;</td>
+          <td>{{ item.toner.toners_type|upper }}&nbsp;&nbsp;</td>
+          <td>{{ item.quantity }}&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
