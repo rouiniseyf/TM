@@ -2,6 +2,8 @@ from django.db import models
 from django.core.exceptions import ObjectDoesNotExist  
 from datetime import date
 # Create your models here.
+def test():
+    pass
 
 def increment_invoice_number():
     all_releases = ReleaseVoucher.objects.all().order_by('id')
