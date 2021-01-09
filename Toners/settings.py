@@ -25,7 +25,7 @@ SECRET_KEY = '8xzk3d%!6_np)^qw7ag^m+t(=0020os_d#l339b0k%fqp0#qc2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['parcinfo.herokuapp.com','.herokuapp.com','127.0.0.1',]
+ALLOWED_HOSTS = ['parcinfo.herokuapp.com','.herokuapp.com','127.0.0.1','localhost','*']
 
  
 # Application definition
