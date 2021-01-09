@@ -2,9 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('hello/',.viewsHome),
+    path('',.viewsHome),
     path('toners/',views.Toenrs, name='toners'),
-    path(''.views.hello, name='hello'),
+    path('hello/'.viewshello),
     path('release_voucher/',views.ReleaseVoucherPage, name='release_voucher'),
     path('delete_toner/<str:pk>/', views.delete_toner, name='delete_toner'),
     path('update_toner/<str:pk>/', views.update_toner, name='update_toner'),
