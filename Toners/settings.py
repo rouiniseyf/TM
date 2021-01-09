@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '8xzk3d%!6_np)^qw7ag^m+t(=0020os_d#l339b0k%fqp0#qc2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.0.178','localhost','105.235.129.185', '192.168.2.6']
+ALLOWED_HOSTS = ['https://parcinfo.herokuapp.com/','127.0.0.1',]
 
  
 # Application definition
