@@ -10,33 +10,6 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
  
 
-@login_required(login_url='login')
-def Toenrs(request):
-    toners_list = Toner.objects.all()
-    
-    page = request.GET.get('page',1)
-    paginator = Paginator(toners_list,6)
-    try: 
-        toners = paginator.page(page)
-    except PageNotAnInteger: 
-        toners = paginator.page(1)
-    except EmptyPage : 
-        toenrs = paginator.page(paginator.num_pages)
-
-    form = TonerForm() 
-    if request.method == 'POST':     
-        form = TonerForm(request.POST)
-     
-        if form.is_valid() : 
-            form.save()
-            messages.success(request,"Success",extra_tags="success")
-            return redirect('/toners')          
-        else :
-            messages.error(request,"Toner already exist", extra_tags="danger")
-            return Response("Toner already exist")
-   
-    return render(request, 'TonersManagement/pages/toners.html',{'model':"Toner",'data': toners,'form': TonerForm,  'headers':["Toner","Color","Type","Quantity","Update","Delete"]} )
-    
 
 
 def update_toner(request, pk): 

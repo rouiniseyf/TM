@@ -56,6 +56,10 @@ def Home(request):
     return render(request, 'TonersManagement/pages/home.html',context)
 
 @login_required(login_url='login')
+def hello(request):
+    return ("hello")
+    
+@login_required(login_url='login')
 def Toenrs(request):
     toners_list = Toner.objects.all()
     
