@@ -35,7 +35,7 @@ def Toenrs(request):
             messages.error(request,"Toner already exist", extra_tags="danger")
             return Response("Toner already exist")
    
-    return render(request, 'TonersManagement/pages/500.html',{'model':"Toner",'data': toners,'form': TonerForm,  'headers':["Toner","Color","Type","Quantity","Update","Delete"]} )
+    return render(request, 'TonersManagement/pages/toners.html',{'model':"Toner",'data': toners,'form': TonerForm,  'headers':["Toner","Color","Type","Quantity","Update","Delete"]} )
     
 
 
