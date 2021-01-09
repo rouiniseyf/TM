@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('',views.Home),
-    path('toners/',views.Toenrs, name='toners'),
+    
     path('release_voucher/',views.ReleaseVoucherPage, name='release_voucher'),
     path('delete_toner/<str:pk>/', views.delete_toner, name='delete_toner'),
     path('update_toner/<str:pk>/', views.update_toner, name='update_toner'),
