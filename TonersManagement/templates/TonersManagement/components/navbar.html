@@ -1,52 +1,54 @@
 <style type="text/css">
-a:active {
-  color: blue;
-}
+  a:active {
+    color: blue;
+  }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #0F7DC2;">
   <a class="navbar-brand text-light" href="/">TM</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarNavDropdown">
     <ul class="navbar-nav">
-   
+
       <li class="nav-item">
         <a class="nav-link text-light" href="/release_voucher">RELEASEVOUCHER</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/toners">STOCK</a>
-      </li>  
-       <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-light" href="/simcards">SIMCARD</a>
-      </li>       
-       <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-light" href="/customers">CUSTOMER</a>
       </li>
-        <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link text-light" href="/reports">REPORTS</a>
       </li>
-       </li>
-        <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-light" href="/hardware">HARDWARE</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/admin">ADMIN</a>
       </li>
       <li class="nav-item mr-sm-2">
-     
+
       </li>
-       
+
     </ul>
-      <ul class="nav navbar-nav navbar-nav ml-auto">
-      <li>  <span class="navbar-text avbar-right text-light"> Welcome, {{ request.user.first_name }} </span></li>
-      <li> <a class="nav-link text-light" data-toggle="modal" data-target="#confirmation" style="font-weight: bold; cursor: pointer;">Logout</a></li>
+    <ul class="nav navbar-nav navbar-nav ml-auto">
+      <li> <span class="navbar-text avbar-right text-light"> Welcome, {{ request.user.first_name }} </span></li>
+      <li> <a class="nav-link text-light" data-toggle="modal" data-target="#confirmation"
+          style="font-weight: bold; cursor: pointer;">Logout</a></li>
     </ul>
   </div>
-    
+
 </nav>
 
 
- 
+
 
 {% include 'TonersManagement/components/confirmation.html' %}

@@ -1,24 +1,24 @@
-{% extends 'TonersManagement/components/base.html ' %}
+{% extends 'TonersManagement/components/base.html' %}
 
 {% block content %}
 
 <div class="container w-50 mt-5">
-<div class="card text-center">
-  <div class="card-header">
-   {% comment %} {{ title }} {% endcomment %}
+  <div class="card text-center">
+    <div class="card-header">
+      {% comment %} {{ title }} {% endcomment %}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ info }}</h5>
+      <p class="card-text">Are you sure?</p>
+      <form action="{% url delete_tamplate data.id %}" method="POST">
+        {% csrf_token %}
+        <a class="btn btn-light shadow-none" href="{% url delete_url %}">Cancel</a>
+        <input type="submit" class="btn btn-danger shadow-none" name="Delete"></a>
+      </form>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">{{ info }}</h5>
-    <p class="card-text">Are you sure?</p>
-    <form action="{% url delete_tamplate data.id %}" method="POST">
-    {% csrf_token %}
-        <a  class="btn btn-light shadow-none" href="{% url delete_url %}">Cancel</a>
-        <input type="submit"  class="btn btn-danger shadow-none"  name="Delete"></a>
-    </form>
-  </div>
-  <div class="card-footer text-muted">
-    
-  </div>
-</div>
 </div>
 {% endblock content %}

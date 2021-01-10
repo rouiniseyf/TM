@@ -1,4 +1,4 @@
-{% extends 'TonersManagement/components/base.html ' %}
+{% extends 'TonersManagement/components/base.html' %}
 
 {% block content %}
 
@@ -11,18 +11,18 @@
   </ol>
 </nav>
 <div class="container-fluid" style="background-color: white; ">
- <a  class="btn btn-light float-right mr-2" href="{% url 'offers' %}" style="margin-left : 5px;">Add Offer</a>
+  <a class="btn btn-light float-right mr-2" href="{% url 'offers' %}" style="margin-left : 5px;">Add Offer</a>
 
-{% include 'TonersManagement/components/messages.html' %}
-{% include 'TonersManagement/components/add_new_item.html' %}
-{% include 'TonersManagement/components/simcards_table.html' %}
-{% include 'TonersManagement/components/simcards_mobile_view.html' %}
+  {% include 'TonersManagement/components/messages.html' %}
+  {% include 'TonersManagement/components/add_new_item.html' %}
+  {% include 'TonersManagement/components/simcards_table.html' %}
+  {% include 'TonersManagement/components/simcards_mobile_view.html' %}
 
 </div>
- 
 
 
 
- 
+
+
 
 {% endblock content %}

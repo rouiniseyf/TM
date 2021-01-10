@@ -1,34 +1,37 @@
-{% extends 'TonersManagement/components/base.html ' %}
+{% extends 'TonersManagement/components/base.html' %}
 
 {% block content %}
 
 
 
 <div class="container-fluid">
- 
+
   <div class="mt-3">
     <div class="card-header">
       RELEASE VOUCHER NUMBER <b> {{ data.release_number }}</b>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Customer <br ><b>{{ data.customer.full_name}}</b> </li>
+      <li class="list-group-item">Customer <br><b>{{ data.customer.full_name}}</b> </li>
       <li class="list-group-item">Direction <br><b>{{ data.customer.direction}}</b> </li>
-      <li class="list-group-item">Release Date <br ><b>{{ data.release_date}}</b> </li>
+      <li class="list-group-item">Release Date <br><b>{{ data.release_date}}</b> </li>
     </ul>
- 
+
   </div>
 
   {% include 'TonersManagement/components/messages.html' %}
-      <button type="button" class="btn btn-primary shadow-none float-right mb-2 rounded-0" data-toggle="modal" data-target="#CreateModal">  Add {{ model }} </button>
-      <a class="btn btn-primary shadow-none float-right mr-2 rounded-0" style="padding-left : 30px; padding-right : 30px;" href="{% url 'report' data.id %}" role="button">Print</a> 
-      <a class="btn btn-primary shadow-none float-right mr-2 rounded-0" style="padding-left : 30px; padding-right : 30px;" href="{% url 'validate' data.id %}" role="button">Validate</a> 
+  <button type="button" class="btn btn-primary shadow-none float-right mb-2 rounded-0" data-toggle="modal"
+    data-target="#CreateModal"> Add {{ model }} </button>
+  <a class="btn btn-primary shadow-none float-right mr-2 rounded-0" style="padding-left : 30px; padding-right : 30px;"
+    href="{% url 'report' data.id %}" role="button">Print</a>
+  <a class="btn btn-primary shadow-none float-right mr-2 rounded-0" style="padding-left : 30px; padding-right : 30px;"
+    href="{% url 'validate' data.id %}" role="button">Validate</a>
 
 
- 
-      {% include 'TonersManagement/components/add_new_item_without_button.html' %}
-      {% include 'TonersManagement/components/consumptions_table.html' %}
-      {% include 'TonersManagement/components/consumptions_mobile_view.html' %}
-  </div>
+
+  {% include 'TonersManagement/components/add_new_item_without_button.html' %}
+  {% include 'TonersManagement/components/consumptions_table.html' %}
+  {% include 'TonersManagement/components/consumptions_mobile_view.html' %}
+</div>
 </div>
 </div>
 
