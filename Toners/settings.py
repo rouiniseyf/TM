@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +27,7 @@ SECRET_KEY = '8xzk3d%!6_np)^qw7ag^m+t(=0020os_d#l339b0k%fqp0#qc2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://parcinfo.herokuapp.com/','parcinfo.herokuapp.com','.herokuapp.com','127.0.0.1','localhost','*']
+ALLOWED_HOSTS = ['parcinfo.herokuapp.com','127.0.0.1','localhost']
 
  
 # Application definition
