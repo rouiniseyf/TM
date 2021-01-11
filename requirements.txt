@@ -23,6 +23,8 @@ django-utils-six==2.0
 django-weasyprint==1.0.2
 djangorestframework==3.12.2
 django-xhtml2pdf
+dj_database_url
+django-heroku
 future==0.18.2
 graphene==2.1.8
 graphene-django==2.13.0
